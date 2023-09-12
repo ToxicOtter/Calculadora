@@ -11,13 +11,14 @@ namespace Calculadora
                 case '+': operacao.resultado= soma(operacao);break;
                 case '-': operacao.resultado = subtracao(operacao);break;
                 case '*': operacao.resultado = multiplicacao(operacao);break;
+                case '/': operacao.resultado = divisao(operacao);break;
                 default: operacao.resultado = 0; break;
             }
             return operacao;
         }
-        public int soma(Operacoes operacao)
+        public long soma(Operacoes operacao)
         {
-            return operacao.valorA + operacao.valorB;
+            return Convert.ToInt64(operacao.valorA) + Convert.ToInt64(operacao.valorB);
         }
         public int subtracao(Operacoes operacao)
         {
@@ -26,6 +27,16 @@ namespace Calculadora
         public int multiplicacao(Operacoes operacao)
         {
             return operacao.valorA * operacao.valorB;
+        }
+        public int divisao(Operacoes operacao)
+        {
+            if (operacao.valorB == 0)
+            {
+                return 0;
+            } else
+            {
+                return operacao.valorA / operacao.valorB;
+            }
         }
        
     }
