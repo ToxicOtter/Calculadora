@@ -18,17 +18,18 @@ namespace Calculadora
         }
         public long soma(Operacoes operacao)
         {
-            return Convert.ToInt64(operacao.valorA) + Convert.ToInt64(operacao.valorB);
+            //return Convert.ToInt64(operacao.valorA) + Convert.ToInt64(operacao.valorB);
+            return operacao.valorA + operacao.valorB;
         }
-        public int subtracao(Operacoes operacao)
+        public long subtracao(Operacoes operacao)
         {
             return operacao.valorA - operacao.valorB;
         }
-        public int multiplicacao(Operacoes operacao)
+        public long multiplicacao(Operacoes operacao)
         {
             return operacao.valorA * operacao.valorB;
         }
-        public int divisao(Operacoes operacao)
+        public long divisao(Operacoes operacao)
         {
             if (operacao.valorB == 0)
             {
