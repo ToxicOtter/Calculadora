@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Calculadora
 {
@@ -23,6 +24,21 @@ namespace Calculadora
                 Operacoes operacao = filaOperacoes.Dequeue(); //Soluciona o problema de loop infinito no primeiro item da fila
                 calculadora.calcular(operacao);
                 Console.WriteLine("{0} {1} {2} = {3}", operacao.valorA,operacao.operador,operacao.valorB, operacao.resultado);
+
+                if (filaOperacoes.Count > 0) //Implementa a funcionalidade de imprimir a fila no fim de cada operação
+                {
+                    Console.Write(filaOperacoes.Count + " operações na fila: ");
+                    foreach (Operacoes opNaFila in filaOperacoes)
+                    {
+                        //Console.Write(opNaFila.valorA);
+                        Console.Write("'{0} {1} {2}'; ", opNaFila.valorA, opNaFila.operador, opNaFila.valorB);
+                    }
+                } else
+                {
+                    Console.WriteLine("Fila de operações vazia");
+                }
+                Console.WriteLine("\n");
+                
             }
 
           
